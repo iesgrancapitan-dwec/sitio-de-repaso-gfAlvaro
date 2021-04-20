@@ -1,9 +1,7 @@
 :root {
  background-color: cyan;
  font-family: Arial;
- --casillaMedidas: 1.5em;
  --colorBackground: blue;
- --colorBorde: cyan;
  --radioBorde: 0.5em;
  --nivelPadding: 0.5em;
 }
@@ -23,21 +21,32 @@ footer {
     background-color: var(--colorBackground);
     border-radius: var(--radioBorde);
     padding: var(--nivelPadding);
-    margin-top: 0.5em;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+#tablero{
+    --colorCasillas: yellowgreen;
+    --casillaMedidas: 1.5em;
 }
 
 #marcadores {
-    background-color: yellowgreen;
+    background-color: var(--colorCasillas);
     border: 0.1em solid blue;
     margin-left: auto;
     margin-right: auto;
-    max-width: 11.1em;
+    max-width: 11em;
     padding: var(--nivelPadding);
 }
 
 #marcadores *{
     display: inline-block;
-    padding: 0.48em;
+    padding: 0.46em;
     margin-left: auto;
     margin-right: auto;
 }
@@ -47,24 +56,24 @@ footer {
 }
 
 #facil {
-    margin-left: 42.4%;
+    margin-left: 42.5%;
     grid-template-columns: repeat(8, var(--casillaMedidas));
     grid-template-rows: repeat(8, var(--casillaMedidas));
 }
 #normal {
-    margin-left: 34.9%;
+    margin-left: 35%;
     grid-template-columns: repeat(16, var(--casillaMedidas));
     grid-template-rows: repeat(16, var(--casillaMedidas));
 }
 
 #dificil {
-    margin-left: 21.8%;
+    margin-left: 21.9%;
     grid-template-columns: repeat(30, var(--casillaMedidas));
     grid-template-rows: repeat(16, var(--casillaMedidas));
 }
 
 .casilla {
-    background-color: yellowgreen;
+    background-color: var(--colorCasillas);
     border: 0.1em solid blue;
     height: var(--casillaMedidas);
     width: var(--casillaMedidas);
