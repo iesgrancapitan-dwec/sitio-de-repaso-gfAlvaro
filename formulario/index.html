@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta name="author" content="Álvaro García Fuentes">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Álvaro García Fuentes</title>
+        <script type="text/javascript" src="main.js"></script>
+        <script type="text/javascript" src="validar.js"></script>
+    </head>
+    <body>
+        <noscript>Para ver esta página correctamente es necesario tener javascript habilitado.</noscript>
+        <form>
+            <fieldset>
+                <legend>Obligatorios</legend>
+                <label for="texto">Texto:</label>
+                <input type="text" name="texto"><br><span></span>
+
+                <label for="checkbox">Checkbox:</label>
+                <input type="checkbox" name="checkbox"><span></span><br>
+
+                <input type="radio" name="masculino">
+                <label for="masculino">Masculino</label><span></span>
+                <input type="radio" name="femenino">
+                <label for="femenino">Femenino</label><span></span><br>
+
+                <label for="seleccionado">Seleccionado</label>
+                <select name="seleccionado">
+                    <option>None</option>
+                </select><span></span><br>
+
+                <label for="fecha">Fecha seleccionada:</label>
+                <input type="text" name="fecha"><span></span><br>
+            </fieldset>
+
+            <label for="entero">Numérico entero:</label>
+            <input type="text" name="entero"><span></span><br>
+
+            <label for="decimal">Numérico decimal:</label>
+            <input type="text" name="decimal"><span></span><br>
+
+            <label for="correo">Correo electrónico:</label>
+            <input type="text" name="correo"><span></span><br>
+
+            <label for="url">URL:</label>
+            <input type="text" name="url"><span></span><br>
+
+            <label for="fecha">Fecha:</label>
+            <input type="text" name="fecha"><span></span><br>
+
+            <label for="dni">DNI:</label>
+            <input type="text" name="dni"><span></span><br>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="text" name="telefono"><span></span><br>
+
+            <button name="limpiar">Limpiar</button>
+            <button name="enviar">Validar</button>
+            <button name="rellenar">Rellenar</button>
+        </form>
+        <footer>
+            <button id="atras">Atrás</button>
+        </footer>
+    </body>
+</html>
