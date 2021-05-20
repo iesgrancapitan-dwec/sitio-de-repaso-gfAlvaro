@@ -1,134 +1,110 @@
 /**
  * @name main.js
+ * código principal del formulario
  * @author Álvaro García Fuentes
  */
+{
+    import Validar from 'validar.js';
 
-import Validar from validar.js;
-
-    let objetoInputs = {
+    let ObjetoInputs = {
         textoObligatorio: {
             elemento: textoObligatorio,
-            callback: () => textoObligatorio.nextElementSibling.innerHTML = Validar.textoObligatorio.value
+            callback: () => textoObligatorio.nextElementSibling.innerHTML = Validar.compruebaValor(textoObligatorio.value, textoObligatorio.type),
+        },
+
+        radio: {
+            elemento: radio,
+            callback: () => radio.nextElementSibling.innerHTML = Validar.compruebaRadio(radio),
         },
 
         checkboxObligatorio: {
             elemento: checkboxObligatorio,
-            callback: () => checkboxObligatorio.nextElementSibling.innerHTML = Validar.compruebaCheckbox(checkboxObligatorio)
+            callback: () => checkboxObligatorio.nextElementSibling.innerHTML = Validar.compruebaCheck(checkboxObligatorio),
         },
-
-        genero: {
-            elemento: genero[0],
-            callback: () => genero[1].parentElement.nextElementSibling.innerHTML = Validar.compruebaSiChequeado(genero)
-        },
-
-        genero2: {
-            elemento: genero[1],
-            callback: () => genero[1].parentElement.nextElementSibling.innerHTML = Validar.compruebaSiChequeado(genero)
-        },
-
         seleccionado: {
             elemento: seleccionado,
-            callback: () => seleccionado.nextElementSibling.innerHTML = Validar.compruebaSeleccionado(seleccionado)
+            callback: () => seleccionado.nextElementSibling.innerHTML = Validar.compruebaSelect(seleccionado),
         },
-
-        fecha: {
+        fechaObligatoria: {
             elemento: fecha,
-            callback: () => fecha.nextElementSibling.innerHTML = Validar.compruebaFecha(fecha)
+            callback: () => fecha.nextElementSibling.innerHTML = Validar.compruebaValor(fecha.value, fecha.type),
         },
 
         entero: {
             elemento: entero,
-            callback: () => entero.nextElementSibling.innerHTML = Validar.compruebaEntero(entero)
+            callback: () => entero.nextElementSibling.innerHTML = Validar.compruebaValor(entero.value, entero.name),
         },
 
         decimal: {
             elemento: decimal,
-            callback: () => decimal.nextElementSibling.innerHTML = Validar.compruebaDecimal(decimal)
+            callback: () => decimal.nextElementSibling.innerHTML = Validar.compruebaValor(decimal.value, decimal.name),
         },
 
         correo: {
             elemento: correo,
-            callback: () => correo.nextElementSibling.innerHTML = Validar.compruebaCorreo(correo)
+            callback: () => correo.nextElementSibling.innerHTML = Validar.compruebaValor(correo.value, correo.type),
         },
 
-        URL: {
-            elemento: URL,
-            callback: () => URL.nextElementSibling.innerHTML = Validar.compruebaURL(URL)
+        url: {
+            elemento: url,
+            callback: () => url.nextElementSibling.innerHTML = Validar.compruebaValor(url.value, url.type),
         },
 
-        fechaDeTexto: {
-            elemento: fechaDeTexto,
-            callback: () => fechaDeTexto.nextElementSibling.innerHTML = Validar.compruebaFechaDeTexto(fechaDeTexto)
+        fecha2: {
+            elemento: fecha2,
+            callback: () => fecha2.nextElementSibling.textContent = Validar.compruebaValor(fecha2.value, fecha2.type),
         },
 
-        DNI: {
-            elemento: DNI,
-            callback: () => DNI.nextElementSibling.innerHTML = Validar.compruebaDNI(DNI)
+        dni: {
+            elemento: dni,
+            callback: () => dni.nextElementSibling.innerHTML = Validar.compruebaValor(dni.value, dni.name),
         },
 
         telefono: {
             elemento: telefono,
-            callback: () => telefono.nextElementSibling.innerHTML = Validar.compruebaTelefono(telefono)
+            callback: () => telefono.nextElementSibling.innerHTML = Validar.compruebaValor(telefono.value, telefono.name),
+        }
+    }();
+
+    let rellenaCampos = function(event) {
+        event.preventDefault();
+
+        const arrayRellena = ['Paco', true, true, false, '15/05/1990', '30',
+         '101.23', 'prueba@gmail.com', 'https://www.google.es', '02/02/2020', '12345678Z', '111222333'];
+
+        document.getElementsByTagName('input').value = arrayRellena.slice();
+    }
+
+    let limpiaCampos = function(event) {
+        event.preventDefault();
+        document.querySelectorAll('span').forEach( elemento => elemento.innerHTML = "" );
+    }
+
+    let envia = function(event) {
+        event.preventDefault();
+
+        let eventoBlur = new Event('blur');
+
+        for(let clave in ObjetoInputs) {
+            ObjetoInputs[clave].elemento.dispatchEvent(eventoBlur);
         }
 
-    };
+        let arraySpans = Array.from(document.getElementsByTagName('span'));
 
-    // evento inicial
-    document.addEventListener("DOMContentLoaded", function(){
+        let spanRelleno = arraySpans.find( span => span.innerHTML.length !== 0 );
 
-        let f = function () {
-            for(let clave in objetoInputs){
-                objetoInputs[clave].elemento.addEventListener("blur", objetoInputs[clave].callback);
-            }
+        if(spanRelleno !== undefined) {
+            spanRelleno.previousSibling.focus();
+        } else {
+            alert('EUREKA');
+        }
+    }
 
-            objetoInputs["checkboxObligatorio"].elemento.addEventListener("click", objetoInputs["checkboxObligatorio"].callback);
-
-        };
-
-        // limpiar
-        document.getElementsByTagName("button")[0].addEventListener("click", function(event){
-
-            event.preventDefault();
-
-            let spans = document.querySelectorAll("span");
-
-            for(const elemento of spans){
-                elemento.value = "";
-            }
-
-            console.log("Formulario limpiado");
-        });
-
-        let accesoInputs = document.querySelectorAll("input");
-
-        // rellenar
-        document.getElementsByTagName("button")[2].addEventListener("click", function(event){
-            
-            event.preventDefault();
-
-            let arrayInputs = ["hola", "Álvaro García", false, "0", "1989-02-02", "7", "0.4",
-            "miCorreo@gmail.com", "http://www.google.com", "02/02/1989", "30993717K", "123456789"];
-
-            document.getElementsByName("checkbox")[0].checked = true;
-
-            let i = 0;
-            for( const iterator of accesoInputs ){
-                iterator.value = arrayInputs[i];
-                i++;
-            }
-
-            console.log("formulario relleno");
-        });
-
-        // enviar
-        document.getElementsByTagName("button")[1].addEventListener("click", function(event){
-
-            event.preventDefault();
-
-
-
-        });
-
-        // enlace atrás
-        document.getElementById("atras").addEventListener( "click", () => history.back() );
+    // documento cargado
+    document.addEventListener('DOMContentLoaded', function() {              
+        document.getElementsByName('limpiar')[0].addEventListener( 'click', limpiaCampos );
+        document.getElementsByTagName('form')[0].addEventListener( 'submit', envia );
+        document.getElementsByName('rellenar')[0].addEventListener( 'click', rellenaCampos );
+        document.getElementsByName('atras')[0].addEventListener( 'click', function(){ history.back(); } );
     });
+}
