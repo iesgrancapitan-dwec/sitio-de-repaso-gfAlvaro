@@ -4,6 +4,8 @@
  * @author Álvaro García Fuentes
  */
 {
+    let inputsErroneos = [];
+
     let Validar = (function() {
  
         const regex = {
@@ -32,70 +34,84 @@
                 "Formatos válidos: dd/mm/YYYY, dd mm YYYY, dd-mm-YYYY" ],
             
             dni: 
-                [ /^(\d{8})[ -]?([A-Z(^IÑOU)]$)/i, ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'],
-                 "Formato válido 12345678Z" ],
+                [ /^(\d{8})[ -]?([A-Z(^IÑOU)]$)/i,
+                ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X',
+                      'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C',
+                      'K', 'E', 'T'],
+                "Formato válido 12345678Z" ],
 
             telefono:
                 [ /^(\(\+?\d{2,4}\))?([. ])?(\d{3})([. ])?(\d{3})([. ])?(\d{3})$/,
                 "Error, formato correcto: Ejemplo 111222333" ]
         };
  
-        export default compruebaValor = function(valor, tipo) {
-            let salida = "";
-            (valor.trim() != "")?
-                (
-                (tipo == "text")?
-                    ( regex.textoObligatorio[0].test(valor)? null : salida = regex.textoObligatorio[1] ) :
+        let compruebaValor = function(valor, tipo) {
 
-                (tipo == "entero")?
-                    ( regex.entero[0].test(valor)? null : salida = regex.entero[1] ) :
+            if( valor.trim() != "" ){
+                switch(tipo){
+                case "textoObligatorio":
+                    if( !regex.textoObligatorio[0].test(valor) )
+                        return regex.textoObligatorio[1];
+                    break;
 
-                (tipo == "decimal")?
-                    ( regex.decimal[0].test(valor)? null : salida = regex.decimal[1] ) :
+                case "entero":
+                    if( !regex.entero[0].test(valor) )
+                        return regex.entero[1];
+                    break;
 
-                (tipo == "email")?
-                    ( regex.correo[0].test(valor)? null : salida = regex.correo[1] ) :
-            
-                (tipo == "url")?
-                    ( regex.url[0].test(valor)? null : salida = regex.url[1] ) :
+                case "decimal":
+                    if( !regex.decimal[0].test(valor) )
+                        return regex.decimal[1];
+                    break;
 
-                (tipo == "date")?
-                    (!regex.fecha[0].test(valor)? salida = regex.fecha[1] :
-                                                salida = function() {
-                                                    let salida = "";
-                                                    let [, dia, , mes, , anyo] = regex.fecha[0].exec(valor);
-                                                    let fecha = new Date(`${mes}/${dia},${anyo}`);
-                                                    (parseInt(dia) !== fecha.getDate() || 
-                                                    parseInt(mes) - 1 !== fecha.getMonth() || 
-                                                    parseInt(anyo) !== fecha.getFullYear())?
-                                                        salida = "Fecha no existe" : null;
+                case "email":
+                    if( !regex.correo[0].test(valor) )
+                        return regex.correo[1];
+                    break;
 
-                                                    return salida;
-                                                }) :
+                case "url":
+                    if( !regex.url[0].test(valor) )
+                        return regex.url[1];
+                    break;
 
-                (tipo == "dni")?
-                    salida = function() {
-                        let salida = "";
-                        try {
-                            let [, numero, letra] = regex.dni[0].exec(valor);
-                            (regex.dni[1][numero % 23] == letra.toUpperCase())? null
-                                                                              : salida = "La letra introducida no es la correcta";
-                        } catch (error) {
-                            salida = regex.dni[2];
+                case "date":
+                    if( !regex.fecha[0].test(valor) ){
+                        return regex.fecha[1];                    
+                    } else {
+                        let [, dia, , mes, , anyo] = regex.fecha[0].exec(valor);
+                        let fecha = new Date(`${mes}/${dia},${anyo}`);
+
+                        if( (parseInt(dia) !== fecha.getDate())
+                         || (parseInt(mes)-1 !== fecha.getMonth())
+                         || (parseInt(anyo) !== fecha.getFullYear()) ){
+                            return "Fecha no existe";
                         }
-                        return salida;
-                    } :
+                    }
+                    break;
 
-                (tipo == "telefono")?
-                    ( regex.telefono[0].test(valor)? null : salida = regex.telefono[1] ) : null
-                ) :
+                case "dni":
+                    try {
+                        let [, numero, letra] = regex.dni[0].exec(valor);
+                        if( !regex.dni[1][numero % 23] == letra.toUpperCase() )
+                            return "La letra introducida no es la correcta";
+                    } catch (error) {
+                        return regex.dni[2];
+                    }
+                    break;
 
-                salida =`El ${tipo} no puede estar vacío`;
+                case "telefono":
+                    if( !regex.telefono[0].test(valor) )
+                        return regex.telefono[1];
+                    break;
+                }
 
-            return salida;
+                return "";
+            
+            } else
+                return `El ${tipo} no puede estar vacío`;
         }
  
-        export default compruebaRadio = function(radios) {
+        let compruebaRadio = function(radios) {
 
             if( Array.from(radios).some((i) => i.checked) )
                 return "Seleccione una opción";
@@ -103,7 +119,7 @@
             return "";
         }
  
-        export default compruebaSelect = function(select) {
+        let compruebaSelect = function(select) {
 
             if( "".includes( select.value ) )
                 return "Debes seleccionar una opción.";
@@ -111,13 +127,19 @@
             return "";
         }
  
-        export default compruebaCheck = function(checkbox) {
+        let compruebaCheck = function(checkbox) {
             
             if(!checkbox)
                 return "Debes de hacer click";
             
             return "";
         }
-    })();
 
+        return {
+            compruebaRadio: compruebaRadio,
+            compruebaSelect: compruebaSelect,
+            compruebaCheck: compruebaCheck,
+            compruebaValor: compruebaValor
+        }
+    })();
 }
