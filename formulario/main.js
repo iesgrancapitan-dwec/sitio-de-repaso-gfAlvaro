@@ -5,51 +5,47 @@
  */
 {
     let textoObligatorio = function() {
-        this.nextElementSibling.innerHTML = Validar.compruebaValor(this.value, "textoObligatorio");
+        this.nextElementSibling.textContent = Validar.compruebaValor( this.value, "textoObligatorio" );
     }
 
     let checkboxObligatorio = function() {
-        this.nextElementSibling.textContent = Validar.compruebaCheck(this.checked);
+        this.nextElementSibling.textContent = Validar.compruebaCheck( this.checked );
     }
 
     let sexo = function() {
-        this.parentElement.parentElement.lastElementChild.textContent = Validar.compruebaRadio( document.getElementsByName("sexo") );
+        this.parentElement.lastElementChild.textContent = Validar.compruebaRadio( document.getElementsByName("sexo") );
     }
 
     let seleccionado = function() {
-        this.nextElementSibling.textContent = Validar.compruebaSelect(this);
+        this.nextElementSibling.textContent = Validar.compruebaSelect( this );
     }
 
     let fecha = function() {
-        this.nextElementSibling.textContent = Validar.compruebaValor(this.value, "date");
+        this.nextElementSibling.textContent = Validar.compruebaValor( this.value, "fecha" );
     }
 
     let entero = function() {
-        this.nextElementSibling.textContent = Validar.compruebaValor(this.value, "entero");
+        this.nextElementSibling.textContent = Validar.compruebaValor( this.value, "entero" );
     }
 
     let decimal = function() {
-        this.nextElementSibling.textContent = Validar.compruebaValor(this.value, "decimal");
+        this.nextElementSibling.textContent = Validar.compruebaValor( this.value, "decimal" );
     }
 
     let correo = function() {
-        this.nextElementSibling.textContent = Validar.compruebaValor(this.value, "email");
+        this.nextElementSibling.textContent = Validar.compruebaValor( this.value, "email" );
     } 
 
     let url = function() {
-        this.nextElementSibling.textContent = Validar.compruebaValor(this.value, "url");
-    }
-
-    let fecha2 = function() {
-        this.nextElementSibling.textContent = Validar.compruebaValor(this.value, "fecha");
+        this.nextElementSibling.textContent = Validar.compruebaValor( this.value, "url" );
     }
 
     let DNI = function() {
-        this.nextElementSibling.textContent = Validar.compruebaValor(this.value, "dni");
+        this.nextElementSibling.textContent = Validar.compruebaValor( this.value, "dni" );
     }
 
     let telefono = function() {
-        this.nextElementSibling.textContent = Validar.compruebaValor(this.value.trim(), "number");
+        this.nextElementSibling.textContent = Validar.compruebaValor( this.value.trim(), "telefono" );
     }
 
     let funciones = {
@@ -63,13 +59,14 @@
         correo: correo,
         url: url,
         fecha2: fecha,
-        DNI: DNI,
+        dni: DNI,
         telefono: telefono
     }
 
     // documento cargado
     document.addEventListener('DOMContentLoaded', function() {
-       
+
+        // dar a todos los inputs el evento blur
         let inputs = Array.from( document.getElementsByTagName("input") );
 
         for( input of inputs ){
@@ -82,14 +79,18 @@
 
             // activar blur de todos los elementos
             let evento = new Event("blur");
-            document.getElementsByTagName("input").dispatchEvent(evento);
+            let inputs = document.getElementsByTagName("input");
+
+            for (const iterator of inputs ){
+                iterator.dispatchEvent(evento);
+            }
 
             // comprobar spans
-            let spans = Array.from(document.getElementsByTagName("span"));
-            let span = spans.find(element => element.textContent != "");
+            let spans = Array.from( document.getElementsByTagName("span") );
+            let span = spans.find( element => element.textContent != "" );
 
             if (span) {
-                span.parentElement.firstElementChild.focus();
+                span.previousSibling.focus();
             } else {
                 alert("Formulario enviado!");
             }
@@ -115,7 +116,14 @@
         // limpiar formulario
         document.getElementsByName('limpiar')[0].addEventListener( 'click',  function(event) {
             event.preventDefault();
+
             document.getElementsByTagName("form")[0].reset();
+
+            let spans = document.getElementsByTagName("span");
+
+            for(element of spans ) {
+                element.innerHTML = "";
+            };
         });
  
         // enlace atrás
