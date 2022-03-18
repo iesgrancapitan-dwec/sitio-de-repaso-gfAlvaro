@@ -1,4 +1,3 @@
-# sitio-de-repaso-gfAlvaro
-sitio-de-repaso-gfAlvaro created by GitHub Classroom
+Recuperaciones Desarrollo Web en Entorno Cliente
 
-Repaso del módulo de Desarrollo Web en Entorno Cliente.
+Autor: Álvaro García Fuentes
