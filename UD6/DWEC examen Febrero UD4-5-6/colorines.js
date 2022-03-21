@@ -6,6 +6,9 @@
 {
     let divs = "";
 
+    /**
+     * Escribe nombre y apellidos en los párrafos
+     */
     let editaParrafos = () => {
         let parrafos = document.querySelectorAll('p');
 
@@ -17,6 +20,9 @@
         }
     }
 
+    /**
+     * Comportamiento de los divs
+     */
     let editaDivs = () => {
         const clases = ["rojo", "verde", "amarillo"];
         divs = document.querySelectorAll('div>div');
@@ -27,6 +33,9 @@
         };
     }
 
+    /**
+     * Comportamiento al cliquear en un div
+     */
     let cliquea = function() {
 
         this.innerHTML = this.className;
