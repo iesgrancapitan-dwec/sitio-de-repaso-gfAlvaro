@@ -1,0 +1,38 @@
+body{
+    background-color: lightgreen;
+}
+
+main{
+    padding: 1em;
+}
+
+ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul li{
+    background-color: cyan;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px 0 10px 0;
+    width: fit-content;
+    padding: 1em;
+}
+
+header, footer {
+    text-align: center;
+    color: white;
+    background-color: darkblue;
+    padding: 1px;
+}
+
+footer {
+    font-weight: bold;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    object-fit: contain;
+}
