@@ -42,11 +42,13 @@
 
         //si ningún div tiene clase se duplica el grid
         let grid = document.getElementsByClassName('grid')[0].cloneNode(true);
-        document.body.appendChild(grid);
+        document.getElementsByTagName('main')[0].appendChild(grid);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
         editaParrafos();
         editaDivs();
+
+        document.getElementById("atras").addEventListener('click', () => history.back());
     });
 }

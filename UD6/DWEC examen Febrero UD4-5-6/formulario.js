@@ -8,22 +8,26 @@
     let apellidos;
     let curso;
 
+    /**
+     * valida los campos nombre y apellidos
+     */
     let valida = function(){
 
         let campo = document.getElementById(this.id);
 
-        if(campo.value.trim() == ""){
+        if( campo.value.trim() == "" ){
             campo.parentNode.nextSibling.innerHTML = "Este campo no debe estar vacío.";
             campo.parentNode.nextSibling.style.color = "red";
-        } else {
-            if(campo.parentNode.nextSibling.innerHTML != ""){
-                campo.parentNode.nextSibling.innerHTML = "";
-                campo.parentNode.nextSibling.removeAttribute("style");
-            }
-        }
+        } else if( campo.parentNode.nextSibling.innerHTML != "" ){
+            campo.parentNode.nextSibling.innerHTML = "";
+            campo.parentNode.nextSibling.removeAttribute("style");
+        }        
     }
 
-    let validaCurso = function(){        
+    /**
+     * valida el campo curso
+     */
+    let validaCurso = () => {
         if( /(1|2)(asir|daw|dam)/.test(curso.value.trim()) ){
             if(curso.parentNode.nextSibling.innerHTML != ""){
                 curso.parentNode.nextSibling.innerHTML = "";
@@ -67,6 +71,10 @@
         limpiaSpans();
     };
 
+    /**
+     * Envía el formulario
+     * @param {event} evt 
+     */
     let envia = (evt) => {
         evt.preventDefault();
         
@@ -106,5 +114,7 @@
         document.getElementById('reset').addEventListener('click', resetea);
         document.getElementById('rellenar').addEventListener('click', rellena);
         document.getElementById('submit').addEventListener('click', envia);
+
+        document.getElementById("atras").addEventListener('click', () => history.back());
     });
 }
