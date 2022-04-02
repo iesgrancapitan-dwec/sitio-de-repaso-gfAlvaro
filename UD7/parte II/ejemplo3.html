@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="author" content="Álvaro García Fuentes">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <title>función jquery</title>
+        <script src="../jquery-3.6.0.js" type="text/javascript"></script>
+        <script>
+            $(function (){
+                var documento = $("main > p");
+                documento.css("background-color", "#ff8833");
+            });
+            $(function (){
+                var documento = $("b");
+                documento.css("color", "#fff");
+            });
+            //si colocase aquí este código, no funcionaría, porque el DOM no estaría listo para realizar acciones
+            //var documento = $("p");
+            //documento.css("background-color", "#ff8833");
+        </script>
+    </head>
+    <body>
+        <noscript>Para ver correctamente esta página se necesita javascript</noscript>
+        <header><h1>Función jQuery</h1></header>
+        <main>
+            <p><b>Párrafo</b>!!</p>
+            <p>Otro <b>párrafo</b></p>
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button onclick="history.back()">Atrás</button>
+        </footer>
+    </body>
+</html>

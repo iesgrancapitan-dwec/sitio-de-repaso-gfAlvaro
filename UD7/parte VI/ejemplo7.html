@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <meta name="author" content="Álvaro García Fuentes">
+        <title>Eventos on</title>
+        <style type="text/css">
+            .verde{color: green;}
+        </style>
+        <script type="text/javascript" src="../jquery-3.6.0.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(document.body).on("click", ".verde", function(e){
+                    var elem = $(this);
+                    if (elem.html()!="Hiciste clic!!"){
+                        elem.html("Hiciste clic!!");
+                    }else{
+                        elem.html("Hiciste de nuevo clic!!");
+                    }
+                })
+                
+                $("#insertarelem").on("click", function(e){
+                    var nuevoElemento = $('<div class="verde">Este elemento se ha creado e insertado dinamicamente(haz clic)</div>');
+                    nuevoElemento.appendTo($("main"));
+                });
+
+                $("#ponerclaseverde").on("click", function(e){
+                    $("#noverde").addClass("verde");
+                });
+            })
+        </script>
+    </head>
+    <body>
+        <noscript>Para que esta página funcione correctamente es necesario javascript.</noscript>
+        <header><h1>Eventos on</h1></header>
+        <main>
+            <p>Nota: Antes se usaba para esta demostración el evento live, pero actualmente está deprecated.</p>
+            <div class="verde">Esta capa tiene la clase verde (haz clic)</div>
+            <div class="verde">Segunda capa donde coloco la clase verde</div>
+            <div id="noverde">Tercera capa que no es verde</div>
+            <div class="verde">Otra con clase verde</div>
+            <input type=button value="insertar nuevo elemento verde" id="insertarelem">
+            <input type=button value="Poner la clase verde en el div que no la tiene" id="ponerclaseverde">
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button javascript="history.back()">Atrás</button>
+        </footer> 
+    </body>
+</html>

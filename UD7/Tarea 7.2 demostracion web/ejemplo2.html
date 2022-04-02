@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <meta name="author" content="Álvaro García Fuentes">
+        <title>Ejemplo 2</title>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="../jquery-3.6.0.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+
+                let inputs = $("input");
+                let checked;
+
+                inputs.each(function(index) {
+                    $(this).change(function() {
+                        if($(this).prop("checked")) {
+
+                            checked=index;
+
+                            inputs.each(function(index){
+                                if(index != checked){
+                                    $(this).attr("disabled",true);
+                                }
+                            });
+                        } else {
+                            inputs.each(function(index){
+                                if(index != checked){
+                                    $(this).attr("disabled",false);
+                                }
+                            });
+                        }   
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <noscript>Para que esta página funcione correctamente se necesita javascript.</noscript>
+        <header><h1>Ejemplo 2</h1></header>
+        <main>
+            <form>
+                <label>Checkbox 1<input type="checkbox"></label><br>
+                <label>Checkbox 2<input type="checkbox"></label><br>
+                <label>checkbox 3<input type="checkbox"></label>
+            </form>
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button onclick="history.back()">Atrás</button>
+        </footer>
+    </body>
+</html>

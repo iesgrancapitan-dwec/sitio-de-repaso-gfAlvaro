@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="author" content="Álvaro García Fuentes">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <title>Ejemplos de uso de la función data del core de jQuery</title>
+        <script src="../jquery-3.6.0.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function(){
+                $("a").click(function(evento){
+                    evento.preventDefault();
+                    valorAlmacenado = $(this).data("midato");
+                    $("#mensaje").html("En el enlace <b>" + $(this).attr("id") + "</b> tiene el dato 'midato' como " + valorAlmacenado);
+                });
+                $("#guardar").click(function(evento){
+                    $("a").data("midato","mivalor");
+                    $("#mensaje").html('He guardado en todos los enlaces un dato llamado "midato" con el valor "mivalor"');
+                });
+                $("#guardarenlace1").click(function(evento){
+                    $("#enlace1").data("midato","otro valor");
+                    $("#mensaje").html('He guardado en el enlace1 un dato llamado "midato" con el valor "otro valor"');
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <noscript>Para ver correctamente esta página se necesita javascript</noscript>
+        <header><h1>Ejemplos de uso de la función data del core de jQuery</h1></header>
+        <main>
+            <a href="#" id="enlace1">Enlace 1</a>
+            <br>
+            <a href="#" id="enlace2">Enlace 2</a>
+            <br>
+            <a href="#" id="enlace3">Enlace 3</a>
+            <br>
+            <br>
+            <div id="mensaje">Mensaje...</div>
+            <br>
+            <button id="guardar">guardar "midato" con valor "mivalor" en todos los enlaces</button>
+            <br>
+            <button id="guardarenlace1">guardar "midato" con valor "otro valor" en el enlace 1</button>
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button onclick="history.back()">Atrás</button>
+        </footer>
+    </body>
+</html>

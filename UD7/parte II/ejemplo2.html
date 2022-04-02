@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="author" content="Álvaro García Fuentes">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <title>función jquery</title>
+        <script src="../jquery-3.6.0.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function(){
+                var nuevosElementos = $("<div>Estos elementos ..</b>.<h1>Título...</h1></div>");
+                nuevosElementos.appendTo("main");
+            });
+        </script>
+    </head>
+    <body>
+        <noscript>Para ver correctamente esta página se necesita javascript</noscript>
+        <header><h1>Función jQuery</h1></header>
+        <main>
+            <p>Esto es el cuerpo de la página, que tiene poca cosa...</p>
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button onclick="history.back()">Atrás</button>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="author" content="Álvaro García Fuentes">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <title>each del core de jQuery</title>
+        <script src="../jquery-3.6.0.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("div").each(function(i){
+                    elemento = $(this);
+                    if(elemento.html() == "white")
+                        return true;
+                    if(elemento.html() == "nada")
+                        return false;
+                    elemento.css("color", elemento.html());
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <noscript>Para ver correctamente esta página se necesita javascript</noscript>
+        <header><h1>each del core de jQuery</h1></header>
+        <main>
+            <div>red</div>
+            <div>blue</div>
+            <div>red</div>
+            <div>white</div>
+            <div>red</div>
+            <div>green</div>
+            <div>orange</div>
+            <div>red</div>
+            <div>nada</div>
+            <div>red</div>
+            <div>blue</div>
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button onclick="history.back()">Atrás</button>
+        </footer>
+    </body>
+</html>

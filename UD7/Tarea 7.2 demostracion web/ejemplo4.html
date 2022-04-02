@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <meta name="author" content="Álvaro García Fuentes">
+        <title>Ejemplo</title>
+        <meta charset="UTF-8"/>
+        <script type="text/javascript" src="../jquery-3.6.0.js"></script>
+        <script type="text/javascript">
+        	$(document).ready(function(){
+        	    $("#pulsar").click(function(event) {
+                    $("#info").html(
+                        "<h3>Información asociada al evento:</h3>" +
+                        "<b>pageX:</b> " + event.pageX + "<br><br>" +
+                        "<b>pageY:</b> " + event.pageY + "<br><br>" +
+                        "<b>currentTarget:</b> " + event.currentTarget + "<br><br>" +
+                        "<b>timeStamp:</b> " + event.timeStamp + "<br><br>" +
+                        "<b>isDefaultPrevented:</b> " + event.isDefaultPrevented + "<br><br>" +
+                        "<b>type:</b> " + event.type + "<br><br>"
+                    );
+                });
+			});
+        </script>
+    </head>  
+    <body>
+        <noscript>Para que esta página funcione correctamente se necesita javascript.</noscript>
+        <header><h1>Ejemplo 4</h1></header>
+        <main>
+        	<div id="pulsar">Pulsar aquí para ver información del evento</div>
+            <div id="info"></div>
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button onclick="history.back()">Atrás</button>
+        </footer>
+    </body>
+</html>

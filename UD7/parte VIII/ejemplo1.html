@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <meta name="author" content="Álvaro García Fuentes">
+        <title>Animación jQuery</title>
+        <script type="text/javascript" src="../jquery-3.6.0.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#animar").click(function(e){
+                    e.preventDefault()
+                    $("h1").animate({'border-bottom-width': "20", 'font-size': '25pt'});
+                });
+                $("#restaurar").click(function(e){
+                    e.preventDefault()
+                    $("h1").css({'border-bottom-width': "1", 'font-size': '15pt'});
+                });
+            })
+        </script>
+    </head>
+    <body>
+        <noscript>Para ver correctamente esta página se necesita javascript.</noscript>
+        <header><h1 style="border-bottom: 1px solid #ff8800; font-size: 15pt;">Animacion jQuery</h1></header>
+        <main>
+            Trabajando con el método animate:
+            <a href="#" id="animar">Animar</a>
+            <br>
+            <br>
+            <a href="#" id="restaurar">Restaurar</a>
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button javascript="history.back()">Atrás</button>
+        </footer>
+    </body>
+</html>

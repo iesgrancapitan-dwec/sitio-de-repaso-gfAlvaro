@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <meta name="author" content="Álvaro García Fuentes">
+        <title>Ejemplo 3</title>
+        <script type="text/javascript" src="../jquery-3.6.0.js"></script>
+        <script type="text/javascript">
+        	$(document).ready(function(){
+
+               $("#boton").on("mouseenter",function() {
+                    $("#cambio").css("background","lightgreen");
+                     $("#cambio").css("color","black");
+               });
+
+        	   $("#boton").on("click mouseleave", function() {
+                    $("#cambio").css("background","red");
+                    $("#cambio").css("color","white");
+               });
+
+			});
+        </script>
+    </head>
+    <body>
+        <noscript>Para que esta página funcione correctamente se necesita javascript.</noscript>
+        <header><h1>Ejemplo 3</h1></header>
+        <main>
+            <div id="boton">Coloca el cursor aquí, quítalo o haz click</div>
+            <div id="cambio">Sección que cambia.</div>
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button onclick="history.back()">Atrás</button>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <meta name="author" content="Álvaro García Fuentes">
+        <title>Eventos bind</title>
+        <script type="text/javascript" src="../jquery-3.6.0.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("p").bind("click mouseenter mouseleave", function(e){
+                    if ($(this).css("color")!="rgb(250, 100, 0)")
+                        $(this).css("color", "rgb(250, 100, 0)");
+                    else
+                        $(this).css("color", "rgb(150, 0, 255)");
+                })
+            
+                function clicAlerta(){
+                    alert("Has hecho clic");
+                }
+            
+                $(".miclase").bind("click", clicAlerta);
+            
+                $("#quitarevento").bind("click", function(){
+                    $(".miclase").unbind("click", clicAlerta);
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <noscript>Para que esta página funcione correctamente es necesario javascript.</noscript>
+        <header><h1>Eventos bind</h1></header>
+        <main>
+            <p class="miclase">Primer párrafo</p>
+            <p>Otro párrafo</p>
+            <input type=button value="Quitar el alert del clic del primer párrafo" id="quitarevento">
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button javascript="history.back()">Atrás</button>
+        </footer> 
+    </body>
+</html>

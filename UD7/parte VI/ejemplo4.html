@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <meta name="author" content="Álvaro García Fuentes">
+        <title>Trabajando con eventos de teclado en jQuery</title>
+        <script type="text/javascript" src="../jquery-3.6.0.js"></script>
+        <script type="text/javascript">
+            function operaEvento(evento){
+                $("#loescrito").html($("#loescrito").html() + evento.type + ": " + evento.which + ", ");
+            } 
+            $(document).ready(function(){
+                $(document).keypress(operaEvento);
+                $(document).keydown(operaEvento);
+                $(document).keyup(operaEvento);
+            });
+        </script>
+    </head>
+    <body>
+        <noscript>Para que esta página funcione correctamente es necesario javascript.</noscript>
+        <header><h1>Eventos de teclado en jQuery</h1></header>
+        <main>
+            <div id="loescrito"></div>
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button javascript="history.back()">Atrás</button>
+        </footer>
+    </body>
+</html>

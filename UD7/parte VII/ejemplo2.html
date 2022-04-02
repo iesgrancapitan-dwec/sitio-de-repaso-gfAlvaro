@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <meta name="author" content="Álvaro García Fuentes">
+        <title>Creando plugins en jQuery</title>
+        <script type="text/javascript" src="../jquery-3.6.0.js"></script>
+        <script type="text/javascript">
+            //creo el plugin cuentaCaracteres
+            jQuery.fn.cuentaCaracteres = function() {
+                //para cada uno de los elementos del objeto jQuery
+                this.each(function(){
+                    //creo una variable elem con el elemento actual, suponemos un textarea
+                    elem = $(this);
+                    //creo un elemento DIV sobre la marcha
+                    var contador = $('<div>Contador caracteres: ' + elem.prop("value").length + '</div>');
+                    //inserto el DIV después del elemento textarea
+                    elem.after(contador);
+                    //guardo una referencia al elemento DIV en los datos del objeto jQuery
+                    elem.data("campocontador", contador);
+                    //creo un evento keyup para este elemento actual
+                    elem.keyup(function(){
+                        //creo una variable elem con el elemento actual, suponemos un textarea
+                        var elem = $(this);
+                        //recupero el objeto que tiene el elemento DIV contador asociado al textarea
+                        var campocontador = elem.data("campocontador");
+                        //modifico el texto del contador, para actualizarlo con el número de caracteres escritos
+                        campocontador.text('Contador caracteres: ' + elem.prop("value").length);
+                    });
+                });
+                //siempre tengo que devolver this
+                return this;
+            };
+            $(document).ready(function(){
+                $("textarea").cuentaCaracteres();
+            })
+        </script>
+    </head>
+    <body>
+        <noscript>Para ver correctamente esta página se necesita javascript.</noscript>
+        <header><h1>Creando plugins en jQuery</h1></header>
+        <main>
+            <form>
+                <textarea rows=5 cols=30 id="mitextarea">hola</textarea>
+                <br>
+                <br>
+                <textarea rows=5 cols=30 id="otrotextarea">Otra cuenta...</textarea>
+            </form>
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button javascript="history.back()">Atrás</button>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Álvaro García Fuentes">
+        <title>Cancelar evento</title>
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <script src="../jquery-3.6.0.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function(){
+                $("a").click(function(evento){
+                    alert("Has pulsado el enlace, pero vamos a cancelar el evento...\nPor tanto, no vamos a llevarte a DesarrolloWeb.com");
+                    evento.preventDefault();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <noscript>Para ver correctamente esta página es necesario javascript.</noscript>
+        <header><h1>Cancelar evento</h1></header>
+        <main>
+            <a href="http://www.desarrolloweb.com/">DesarrolloWeb.com</a>
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button onclick="history.back()">Atrás</button>
+        </footer>
+    </body>
+</html>

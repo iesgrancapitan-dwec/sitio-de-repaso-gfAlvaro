@@ -1,5 +1,9 @@
 body{
     background-color: lightgreen;
+
+    height: 100vh;
+    display: flex; 
+    flex-direction: column; 
 }
 
 main{
@@ -35,8 +39,8 @@ header, footer {
 
 footer {
     font-weight: bold;
-    position: fixed;
-    bottom: 0px;
+    margin-top: auto;
     width: 100%;
-    object-fit: contain;
+    box-sizing: border-box;
+    margin-bottom: 0;
 }

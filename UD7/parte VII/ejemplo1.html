@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <meta name="author" content="Álvaro García Fuentes">
+        <title>Creando plugins en jQuery</title>
+        <script type="text/javascript" src="../jquery-3.6.0.js"></script>
+        <script type="text/javascript">
+            jQuery.fn.parpadea = function() {
+                this.each(function(){
+                    $(this).fadeOut(250, function(){
+                        $(this).fadeIn(250);
+                    });
+                });
+                return this;
+            };
+            
+            $(document).ready(function(){
+                //parpadean los elementos de class CSS "parpadear"
+                $(".parpadear").parpadea();
+
+                $("#botonparpadear").click(function(){
+                    $(".parpadear").parpadea();
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <noscript>Para ver correctamente esta página se necesita javascript.</noscript>
+        <header><h1>Creando plugins en jQuery</h1></header>
+        <main>
+            <p class="parpadear">Hola que tal, esto parpadeó gracias a jQuery!</p>
+            <p>Parafo normal que no va a parpadear.</p>
+            <p class="parpadear">Sí parpadea</p>
+            <p>Parafo normal que no va a parpadear tampoco...</p>
+            <div class="parpadear" style="background-color: #ff9966; padding: 10px;">Esta capa también tiene la clase parpadear, con lo que ya se sabe...</div>
+            <p><input type="button" value="Parpadea de nuevo" id="botonparpadear"></p>
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button javascript="history.back()">Atrás</button>
+        </footer>
+    </body>
+</html>

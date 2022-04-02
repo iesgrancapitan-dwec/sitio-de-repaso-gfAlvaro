@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <meta name="author" content="Álvaro García Fuentes">
+        <title>Trabajando con eventos</title>
+        <script type="text/javascript" src="../jquery-3.6.0.js"></script>
+        <script type="text/javascript">
+            var numClics = 0;
+            var numDobleClics = 0;
+            $(document).ready(function(){
+                $("#micapa").dblclick(function(e){
+                    numDobleClics++;
+                    $("#mensaje").html("Doble Clic " + numDobleClics);
+                });
+                $("#micapa").click(function(e){
+                    numClics++;
+                    $("#mensaje").html("Clic " + numClics);
+                });
+            })
+        </script>
+    </head>
+    <body>
+        <noscript>Para ver esta página es necesario javascript.</noscript>
+        <header><h1>Trabajando con eventos</h1></header>
+        <main>
+            <h1>Trabajando con eventos en jQuery</h1>
+            <div id="micapa" style="padding: 10px; background-color: #ffcc99; width: 150px; float:left;">Hazme dobleclick</div>
+            <div id="mensaje" style="padding: 10px; margin-left: 180px;">Aquí voy a colocar mensajes para que los leas...</div>
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button javascript="history.back()">Atrás</button>
+        </footer>
+    </body>
+</html>

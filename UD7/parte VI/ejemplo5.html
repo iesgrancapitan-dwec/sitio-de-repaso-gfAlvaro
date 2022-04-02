@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <meta name="author" content="Álvaro García Fuentes">
+        <title>Trabajando con eventos de teclado en jQuery</title>
+        <script type="text/javascript" src="../jquery-3.6.0.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#mitexto").keypress(function(e){
+                    e.preventDefault();
+                    $("#loescrito").html(e.which + ": " + String.fromCharCode(e.which))
+                });
+            })
+        </script>
+    </head>
+    <body>
+        <noscript>Para que esta página funcione correctamente es necesario javascript.</noscript>
+        <header><h1>Trabajando con eventos de teclado en jQuery</h1></header>
+        <main>
+            <h2>Averiguar qué tecla se está pulsando</h2>
+         <form>
+                <textarea cols=300 rows=2 id="mitexto">Escribe algo aquí!</textarea>
+                <br>
+                <b>Tecla pulsada:</b>
+                <br>
+                <div id="loescrito"></div>
+            </form>
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button javascript="history.back()">Atrás</button>
+        </footer> 
+    </body>
+</html>

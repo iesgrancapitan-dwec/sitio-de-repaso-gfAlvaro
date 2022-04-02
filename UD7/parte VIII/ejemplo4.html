@@ -1,0 +1,52 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <meta name="author" content="Álvaro García Fuentes">
+        <title>Cola con delay()</title>
+        <script type="text/javascript" src="../jquery-3.6.0.js"></script>
+        <style>
+            #micapa{
+                left: 20px;
+                top: 20px;
+                position: absolute;
+                font-size: 0.75em;
+                font-family: tahoma, verdana, sans-serif;
+                width: 740px;
+                background-color: #ddf;
+                padding: 10px;
+                border: 1px solid #bbb;
+            }
+        </style>
+        <script type="text/javascript">
+            function colaEfectos(){
+                capa = $("#micapa");
+                capa.slideUp(1000);
+                capa.delay(2000)
+                capa.slideDown(1000);
+                capa.fadeTo(1500, 0.3).delay(3000).fadeTo(500, 1);
+                capa.delay(500);
+                capa.animate({ "font-size": "+=0.5em" }, 1000, colaEfectos);
+                //alert (capa.queue().length)
+            }
+            $(document).ready(function(){
+                colaEfectos();
+            });
+        </script>
+    </head>
+    <body>
+        <noscript>Para ver correctamente esta página se necesita javascript.</noscript>
+        <header><h1>Cola con delay()</h1></header>
+        <main>
+            <div id="micapa">Vamos a ejecutar varios métodos para hacer una cola de efectos, pero vamos a ponerles un retardo entre unos y otros.</div>
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button javascript="history.back()">Atrás</button>
+        </footer>
+    </body>
+</html>

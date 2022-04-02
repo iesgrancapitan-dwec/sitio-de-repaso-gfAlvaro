@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="author" content="Álvaro García Fuentes">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <title>Atributo checked</title>
+       	<script type="text/javascript" src="../jquery-3.6.0.js"></script>
+        <script type="text/javascript">
+        	$(document).ready( () => {
+    			$("#comprobar").click( () => {
+
+	        		// :selected
+					$("#selected").html( $("#selected").html() + "<br>Opción que has seleccionado: " 
+						+ $("select option:selected").text()+"<br><br>");
+
+	        		// prop
+					$("#prop").html($("#prop").html() + "<br/>¿Radiobutton 1?: " + $("#rbA").prop("checked"));
+					$("#prop").html($("#prop").html() + "<br/>¿Radiobutton 2?: " + $("#rbB").prop("checked") + "<br>");
+	
+					// checked
+					let checked = $("#check:checked").length>0; // Si su longitud es mayor que 0 habra sido seleccionado.
+					$("#checked").html( $("#checked").html() + "Checkbox seleccionado: " + checked + "<br>");
+
+					let radio1Selected = $("#rbA:checked").length>0;
+					$("#checked").html(  $("#checked").html() + "<br/>¿Radiobutton 1?: " + radio1Selected + "<br>");
+
+					let radio2Selected = $("#rbB:checked").length>0;
+					$("#checked").html(  $("#checked").html() + "<br/>¿Radiobutton 2?: " + radio2Selected + "<br>");
+						
+					// val
+					checked = $("#check:checked").val() != undefined;
+					$("#val").html(  $("#val").html() + "Checkbox seleccionado: " + checked + "<br>");
+
+					radio1Selected = $("#rbA:checked").val() != undefined;
+					$("#val").html(  $("#val").html() + "<br/>¿Radiobutton 1?: " + radio1Selected + "<br>");
+
+					radio2Selected = $("#rbB:checked").val() != undefined;
+					$("#val").html(  $("#val").html() + "<br/>¿Radiobutton 2?: " + radio2Selected + "<br>");
+				});
+			});
+        </script>
+    </head>
+    <body>
+		<noscript>Para que esta página funcione correctamente se necesita javascript.</noscript>
+		<header><h1>Atributo checked</h1></header>
+		<main>
+	    	<form>
+	    		<label>Checkbox <input type="checkbox" id="check"></label><br><br>
+	    		Radiobutton 1 <input type="radio" id="rbA" checked>
+		    	Radiobutton 2 <input type="radio" id="rbB">
+				<br>
+				<br>
+	    		<span>Selecciona una opción: </span>
+		    	<select>
+					<option>Opción 1</option>
+					<option>Opción 2</option>
+					<option>Opción 3</option>
+				</select>
+				<br>
+				<br>
+				<input type=button id="comprobar" value="Comprobar funcionamiento"/>        
+    		</form>
+    		<div id="selected"><b>¿Cómo funciona :selected?</b></div>
+	    	<div id="prop"><b>¿Cómo funciona prop()?</b></div>
+    		<div><b id="obsoleto">attr() está obsoleto</b></div>
+    		<div id="checked"><b>¿Cómo funciona :checked?</b></div>
+			<div id="val"><b>¿Cómo funciona val()?</b></div>
+		</main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button javascript="history.back()">Atrás</button>
+        </footer>
+	</body>
+</html>
