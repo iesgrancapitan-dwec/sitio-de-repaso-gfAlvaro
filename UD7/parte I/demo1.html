@@ -7,6 +7,12 @@
         <title>Ejemplos Jquery</title>
         <link rel="stylesheet" href="../../css/normalize.css">
         <link rel="stylesheet" href="../../css/estilos.css">
+        <script>
+            $(document).ready( () => {
+                $("#botonA").click( () => $('#capa').html('Has hecho clic en el botón <b>A</b>') );
+                $("#botonB").click( () => $('#capa').html('Recibido un clic en el botón <b>B</b>') );
+            });
+        </script>
     </head>
     <body>
         <noscript>Para ver correctamente esta página se necesita javascript.</noscript>
@@ -14,8 +20,8 @@
         <main>
             <h2>Demo 1</h2>
             <div id="capa" style="padding: 10px; background-color: #ff8800">Haz clic en un botón</div>
-            <input type="button" value="Botón A" onclick="$('#capa').html('Has hecho clic en el botón <b>A</b>')">
-            <input type="button" value="Botón B" onclick="$('#capa').html('Recibido un clic en el botón <b>B</b>')">
+            <input type="button" value="Botón A" id="botonA">
+            <input type="button" value="Botón B" id="botonB">
         </main>
         <footer>
             <p>Autor: Álvaro García Fuentes</p>
