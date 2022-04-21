@@ -1,0 +1,53 @@
+
+header, #info{
+    text-align: center;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#tablero{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 0;
+    justify-content: center;
+}
+
+.casilla{
+    width:3rem;
+    height: 3rem;
+    border: 1px solid rgb(168, 168, 168);
+    border-radius: 10px;
+    text-align: center;
+    color:red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: cyan;
+    transition: background-color ease-in 0.2s;
+}
+
+.casilla:hover{
+    background-color:#cccc;
+}
+
+#jugar{
+    display: flex;
+    width: 30%;
+    padding: 1rem 1rem;
+    background:orange;
+    color: blue;
+    border-radius: 10px;
+    cursor: pointer;
+    justify-content: center;
+    font-weight: bold;
+}
+
+#jugar:hover{
+    background:blue ;
+    color: orange;
+    border: 1px solid orange;
+}
