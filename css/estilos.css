@@ -1,13 +1,15 @@
 body{
     background-color: lightgreen;
-
     height: 100vh;
     display: flex; 
-    flex-direction: column; 
+    flex-direction: column;
+    font-family: Arial;
 }
 
 main{
     padding: 1em;
+    text-align: center;
+    font-size: 23px;
 }
 
 ul{

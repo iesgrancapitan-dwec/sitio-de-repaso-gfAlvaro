@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta name="author" content="Álvaro García Fuentes">
+        <meta charset="utf-8">
+        <title>Tarea 4.5 Listado Arrays</title>
+        <script type="text/javascript" src="js/ejercicio4.js"></script>
+        <script type="text/javascript" src="js/ejercicio5.js"></script>
+        <script type="text/javascript" src="js/ejercicio61.js"></script>
+        <script type="text/javascript" src="js/ejercicio62.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <style>
+            ol li {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <noscript>Para ver correctamente esta página se necesita javascript</noscript>
+        <header><h1>Tarea 4.5 Listado Arrays</h1></header>
+        <main>
+            <article>
+                <h3>1. Indica qué hace miArray.slice();</h3>
+                <p>Copia el array entero, ya que no se han especificado argumentos.</p>
+            </article>
+            <article>
+                <h3>2. Indica qué hace JSON.parse( JSON.stringify( miArray ) );</h3>
+                <p>Esta sentencia convierte miArray en una cadena de texto en formato JSON, y luego la convierte en un objeto JSON.</p>
+            </article>
+            <article>
+                <h3>3. Indica la diferencia de funcionalidad entre las dos sentencias anteriores</h3>
+                <p>Con JSON.stringify el array u objeto de entrada es convertido a una cadena de texto que es compatible con JSON, mientras que JSON.parse convierte la cadena de entrada en un objeto JSON.</p>
+            </article>
+            <article>
+                <h3>4. Realiza el siguiente ejercicio con ambos métodos e indica la diferencia.</h3>
+                    <ol>
+                        <li>Crea el siguiente array a=[1, 2, {3:3, 5:5}];</li>
+                        <li>Utiliza los métodos anteriores obteniendo las variables c1 y c2;</li>
+                        <li>En el objeto a modifica el tercer elemento: modifica el valor 5 en 55. NO CAMBIES la clave 5, sino el valor 5.</li>
+                        <li>Comprueba los valores de c1 y c2. </li>
+                        <div id="ejercicio4"></div>
+                    </ol>
+            </article>
+            <article>
+                <h3>5. Utilizando la destructuración de un array, y sin definir ninguna función, convierte la siguiente cadena en las variables nombre y apellido: "Zenda Menchú";</h3>
+                <div id="ejercicio5"></div>
+            </article>
+            <article>      
+                <h3>6. Usando funciones arrow básicas (evita return)</h3>
+                    <ol>
+                        <li>Ordena alfabéticamente mediante el método sort() array= ['dolar', 'dólar', 'Amigo', 'ánimo', 'Ágora', 'Decisicón'];</li>
+                        <div id="ejercicio61"></div>
+                        <li> Ordena por apellido let alumnas = [{nombre: 'Anacleta', apellido: 'Cándida' },    { nombre: 'Manola', apellido: 'CÁNTICO' }, {nombre: 'Simona', apellido: 'Carola'}];</li>
+                        <div id="ejercicio62"></div>
+                    </ol>
+            </article>
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button id="atras" onclick="history.back()">Atrás</button>
+        </footer>
+    </body>
+</html>

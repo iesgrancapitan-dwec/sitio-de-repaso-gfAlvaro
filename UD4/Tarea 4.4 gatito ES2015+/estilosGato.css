@@ -1,0 +1,27 @@
+body{
+    text-align: center;
+    font-size: 23px;
+    font-family: 'Arial';
+}
+
+
+#imagen{
+    border: 1px solid black;
+    height: 150px;
+    width: 150px;
+}
+
+#informacionActual{
+    margin-top: 32px;
+    font-size: 24px;
+}
+
+ul{
+    display: inline-block;
+    list-style: none;
+}
+
+li{
+    text-align: left;
+    margin: 10px 0px 10px 0px;
+}
