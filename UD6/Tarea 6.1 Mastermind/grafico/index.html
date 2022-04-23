@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta name="author" content="Álvaro García Fuentes">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../../css/normalize.css">
+        <link rel="stylesheet" href="../../../css/estilos.css">
+        <title>Álvaro García Fuentes</title>
+        <link rel="stylesheet" href="estilos.css">
+        <script src="../mastermind.js"></script>
+	    <script src="main.js"></script>
+    </head>
+    <body>
+        <noscript>Para ver correctamente esta página es necesario Javascript.</noscript>
+        <header><h1>Tarea 6.1 MasterMind</h1></header>
+        <main>
+            <section id="tablero">
+                <div id="ganador">
+                    <h1>¡HAS GANADO!</h1>
+                    <a href="" class="reset">Reiniciar</a>
+                    <a href="" id="exit">Salir</a>
+                </div>
+            </section>
+            <section id="listaColores">
+                <div class="ficha" id="blanca"></div>
+                <div class="ficha" id="negra"></div>
+                <div class="ficha" id="roja"></div>
+                <div class="ficha" id="marron"></div>
+                <div class="ficha" id="amarilla"></div>
+                <div class="ficha" id="verde"></div>
+                <div class="ficha" id="naranja"></div>
+                <div class="ficha" id="azul"></div>
+            </section>
+        <div id="botonera">
+    	    <button id="comprobar">Comprobar</button>		
+	        <button class="reset" id="reset">Reiniciar</button>
+        </div>
+    </main>
+    <footer>
+        <p>Autor:Álvaro García Fuentes</p>
+        <button id="atras" onclick="history.back()">Atrás</button>
+    </footer>
+    </body>
+</html>

@@ -1,0 +1,126 @@
+/**
+ * @name estilos.css
+ * estilos para el modo gráfico del mastermind
+ * @author Álvaro García Fuentes 
+ */
+:root{
+    --borderRadiusCasillas: 100%;
+    --dimensionFicha: 3em;
+    --dimensionCasilla: 5em;
+    --dimensionCasillaPista: 3em;
+    --margenCasillas: 1em;
+    --margenColores: 0.5em;
+    --colorBordes: 0.3em solid#75624c;
+    --colorFondo: cyan;
+}
+
+main {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+#comprobar, #reset{
+    margin: 10px;
+    background-color: lightyellow;
+    height: 4em;
+    border: 0.5em solid limegreen;
+    padding: 1em;
+}
+
+#comprobar:hover, #reset:hover{
+    background-color: var(--colorFondo);
+}
+
+#botonera{
+    position: fixed;
+    top: 30%;
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+#listaColores {
+    background-color: lightyellow;
+    align-items: center;
+}
+
+#ganador {
+    display: none;
+    position: fixed;
+    top: 100px;
+    width: 50%;
+    height: 100px;
+    align-self: center;
+    text-align: center;
+    border-radius: 5em;
+    background-color: white;
+}
+#tablero {
+    border: var(--colorBordes);
+    text-align:center;
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: lightgreen;
+}
+
+.ficha{
+    border-radius: var(--borderRadiusCasillas);
+    height: var(--dimensionFicha);
+    width: var(--dimensionFicha);
+    margin: var(--margenColores) auto;   
+    border: var(--colorBordes); 
+}
+
+#roja {
+    background-color: red;
+}
+
+#blanca {
+    background-color: white;
+}
+
+#negra {
+    background-color: black;
+}
+
+#amarilla{
+    background-color: yellow;
+}
+
+#naranja {
+    background-color: orange;
+}
+
+#marron {
+    background-color: brown;
+}
+
+#azul {
+    background-color: blue;
+}
+
+#verde {
+    background-color: green;
+}
+
+.pistas {
+    display: inline-block;
+}
+
+.casilla, .casillaPista {
+    display: inline-block;
+    border-radius: var(--borderRadiusCasillas);
+    margin: var(--margenCasillas);
+    border: var(--colorBordes);
+}
+
+.casilla{
+height: var(--dimensionCasilla);
+width: var(--dimensionCasilla);
+}
+
+.casillaPista {
+    height: var(--dimensionCasillaPista);
+    width: var(--dimensionCasillaPista);
+}
