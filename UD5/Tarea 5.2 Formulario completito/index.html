@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta name="author" content="Álvaro García Fuentes">
+        <meta charset="utf-8">
+        <title>Formulario completito</title>
+        <script type="text/javascript" src="validar.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="errores.css">
+    </head>
+    <body>
+        <noscript>Para ver esta página correctamente se necesita javascript.</noscript>
+        <header><h1>Formulario completito</h1></header>
+        <main>
+        <form method="POST">
+            <fieldset>
+                <legend>Obligatorios</legend>
+                <label>Texto: <input type="text" name="textoObligatorio" required></label><span></span><br>
+                <label>Checkbox: <input type="checkbox" name="checkboxObligatorio" required></label><span></span><br>
+                <div>
+                    <label for="masculino"><input type="radio" name="sexo" required> Masculino</label>
+                    <label for="femenino"><input type="radio" name="sexo" required> Femenino</label>
+                </div><span></span><br>
+                <label>Seleccionado: <select name="seleccionado" required>
+                    <option value="0">None</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select></label><span></span><br>
+                <label>Fecha seleccionada: <input type="date" name="fecha" placeholder="DD/MM/YYYY" required></label><span></span><br>
+            </fieldset>
+
+            <label>Numérico entero: <input type="number" name="entero"></label><span></span><br>
+            <label>Numérico decimal: <input type="number" name="decimal" step="any"></label><span></span><br>
+            <label>Correo electrónico: <input type="email" name="correo"></label><span></span><br>
+            <label>URL: <input type="url" name="url"></label><span></span><br>
+            <label>Fecha: <input type="text" name="fecha2"></label><span></span><br>
+            <label>DNI: <input type="text" name="dni"></label><span></span><br>
+            <label>Teléfono: <input type="number" name="telefono"></label><span></span><br>
+
+            <button name="limpiar" type="reset">Limpiar</button>
+            <button name="enviar" type="submit">Enviar</button>
+            <button name="rellenar">Rellenar</button>
+        </form>
+        </main>
+        <footer>
+            <p>Álvaro García Fuentes</p>
+            <button id="atras" onclick="history.back()">Atrás</button>
+        </footer>
+    </body>
+</html>
