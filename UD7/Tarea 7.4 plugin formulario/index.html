@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta name="author" content="Álvaro García Fuentes">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <title>Tarea 7.4 formulario con plugin</title>
+        <script type="text/javascript" src="../jquery-3.6.0.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+        <style> span{ color:red } </style>
+    </head>
+    <body>
+        <noscript>Para ver correctamente esta página es necesario javascript.</noscript>
+        <header><h1>Tarea 7.4 formulario con plugin</h1></header>
+        <main>
+            <form>
+                <label>Nombre: <input id="nombre" data-tipo="nombre" type="text"></label><span></span><br>
+                <label>Apellido: <input id="apellido"data-tipo="nombre" type="text"></label><span></span><br>
+                <label>Correo electrónico: <input id="correo" data-tipo="correo" type="text"></label><span></span><br>
+                <textarea id="mensaje" readonly></textarea><br>
+                <input type="submit" id="envia" value="Enviar">
+            </form>
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button javascript="history.back()">Atrás</button>
+        </footer>
+    </body>
+</html>
