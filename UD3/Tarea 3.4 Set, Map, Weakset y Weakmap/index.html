@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta name="author" content="Álvaro García Fuentes" />
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/estilos.css">
+        <title>Tarea 3.4 Set, Map, Weakset y Weakmap</title>
+        <script type="text/javascript" src="main.js"></script>
+    </head>
+    <body>
+        <noscript>Para ver correctamente esta página es necesario javascript.</noscript>
+        <header><h1>Tarea 3.4 Set, Map, WeakSet y WeakMap</h1></header>
+        <main>
+            <p>Nota: el código de esta tarea tiene su salida en la consola del navegador.</p>
+            <p><b>1. Indica qué es un Set y crea uno partiendo del array [1, 2, 3, 4, 4]. Justifica su tamaño</b></p>
+            <p>Un objeto Set es una colección de valores que no se repiten y que pueden ser de cualquier tipo. 
+                En el Set que hemos creado su tamaño es de 4 porque al tener el array dos valores repetidos uno de ellos se omite.</p>
+            <p><b>2. Justifica por qué funciona el encadenamiento en los métodos de set "new Set().add(11).add(22)"</b></p>
+            <p>Funciona porque los métodos devuelven el objeto con el que trabajan,
+                 de esa forma se pueden encadenar varias llamadas a los métodos</p>
+            <p><b>3. Indica cómo se devuelve un valor de un set</b></p>
+            <p>Un valor de un set es devuelto por referencia, y se puede iterar un Set según el orden de inserción.</p>
+            <p><b>4. Comparativa entre un array y un set: búsqueda de elementos, eliminación de elementos, 
+                búsqueda del elemento NaN, control de duplicados</b></p>
+            <p>La búsqueda de elementos se hace igual en ambos objetos, para eliminar un elemento en un Set 
+                <br>se debe usar el método delete pasándole como argumento el valor que se desea borrar, mientras que en el Array 
+                <br>se borra un elemento según su índice. En un Set un valor puede ser NaN, el cual aquí equivale a Undefined. 
+                <br>En el Set si un elemento repetido se intenta insertar este se omite, en un Array es necesario iterar 
+                <br>cada uno de sus elementos para comprobar si el elemento a insertar ya existe.</p>
+            <p><b>5. Crea un set donde se almacenen los alumnos ausentes. Repítelos y muéstralos.</b></p>
+            <p>Hemos creado un Set con los alumnos Pepe, María, Sara, María. Como María estaba repetido no la ha añadido por segunda vez</p>
+            <p><b>6. Indica qué es un Map y crea uno partiendo del array. Partiendo de él, crea tres arrays: Uno con las claves, otro con los valores y otro con los objetos.</b></p>
+            <p>El objeto Map almacena pares de clave-valor, cualquier valor u objeto puede ser usado como clave o como valor.</p>
+            <p><b>7. Demuestra que un Map admite claves de cualquier tipo: cadenas, null, NaN, null, funciones...</b></p>
+            <p><b>8. Crea un map donde se almacenen los alumnos ausentes. Repítelos y muéstralos.</b></p>
+            <p><b>9. Crea una función "quitaLosRepes(array)" que devuelva un array con los elementos sin repetir. 
+                Utiliza la característica del objeto Set: no admite valores duplicados</b></p>
+            <p><b>10. Averigua mediante código si un WeakSet admite objetos primitivos. Captura la excepción.</b></p>
+            <p><b>11. Averigua mediante código si  WeakSet o WeakMap son iterables. Puedes utilizar for..of</b></p>
+        </main>
+        <footer>
+            <p>Autor: Álvaro García Fuentes</p>
+            <button id="atras" onclick="history.back()">Atrás</button>
+        </footer>
+    </body>
+</html>
