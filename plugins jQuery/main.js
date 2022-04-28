@@ -25,6 +25,6 @@
     $(document).ready( () => {
         $('#ponborde').click( () => $('#cuadro').ponBorde() );
         $('#quitaborde').click( () => $('#cuadro').quitaBorde() );
-        $('#pasarmayusculas').click( () => $('#cuadro').pasarMayusculas( { color:"yellow" } ) );
+        $('#pasarmayusculas').click( () => $('#cuadro').pasarMayusculas() );
     });
 }
