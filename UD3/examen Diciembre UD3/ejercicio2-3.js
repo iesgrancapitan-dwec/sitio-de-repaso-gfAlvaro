@@ -8,7 +8,7 @@
  * -Se extraen nombre y apellidos mediante los grupos de las expresiones regulares y el destructuring.
  * -Se usa el destructuring también al devolver los valores.
  * 
- * ejercicio 3: También se añade un Set para controlar los nombres repetidos.
+ * ejercicio 3: Se añade un Set para controlar los nombres repetidos.
  * @author Álvaro García Fuentes
  */
 {
@@ -18,28 +18,26 @@
         document.getElementById("texto").addEventListener( 'blur', () => {
 
             let entrada = document.getElementById("texto").value;
-
-            let regex = /^([a-z\sáéíóúñ]{1,}),([a-z\sáéíóúñ]{1,}$)/i;
+            let regex = /^([a-z\sáéíóúñ]+),([a-z\sáéíóúñ]+$)/i;
 
             try {
-                regex.test(entrada);
-                [cadena, ape, nom] = entrada.trim().match(regex);
-
-                setNombres.has(cadena)? document.getElementById("errores").innerHTML = "REPETIDO"
-                                      : (document.getElementById("errores").innerHTML = "", setNombres.add(cadena));
-
+                regex.test( entrada.trim() );
+                [ cadena, ape, nom ] = entrada.trim().match( regex );
+                setNombres.has(cadena)? document.getElementsByTagName("span")[0].innerHTML = "REPETIDO"
+                                    : ( document.getElementsByTagName("span")[0].innerHTML = "",
+                                        setNombres.add( cadena ) );
                 document.getElementById("apellidos").innerHTML = `Apellidos: ${ape}`;
                 document.getElementById("nombre").innerHTML = `Nombre: ${nom}`;
                 document.getElementById("texto").value = "";
             } catch (e) {
                 document.getElementById("apellidos").innerHTML = `Apellidos:`;
                 document.getElementById("nombre").innerHTML = `Nombre:`;
-
-                (e instanceof TypeError)? document.getElementById("errores").innerHTML = "Error. Formato correcto: Cuadrado Perfecto, Anacleto"
-                                        : document.getElementById("errores").innerHTML = "Error desconocido.";
+                document.getElementsByTagName("span")[0].innerHTML =
+                    ( e instanceof TypeError )? "Error. Formato correcto: Cuadrado Perfecto, Anacleto"
+                                              : "Error desconocido.";
             }
-        } );
+        });
     
-        document.getElementById("atras").addEventListener('click', () => { history.back() } );
-    } );
+        document.getElementById( "atras" ).addEventListener( 'click', () => { history.back() } );
+    });
 }

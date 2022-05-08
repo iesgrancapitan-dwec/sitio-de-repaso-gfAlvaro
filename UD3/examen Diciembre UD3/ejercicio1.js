@@ -10,26 +10,26 @@
  */
 {
     let reseteaContador = () => {
-        sessionStorage.setItem("cuenta", 0);
+        sessionStorage.setItem( "cuenta", 0 );
         document.getElementById("mensaje").innerHTML = generaMensaje();
     }
 
     let generaMensaje = () =>
-        sessionStorage.getItem("cuenta") == 0 ? `RESETEADO`
-      : sessionStorage.getItem("cuenta") == 1 ? `Bienvenido a mi humilde morada. Esta es la primera vez que entras. Espero que vuelvas.` 
-      : sessionStorage.getItem("cuenta") == 2 ? `Hola de nuevo. Ya estás aquí por segunda vez. ¿Volveremos a vernos?`
+        sessionStorage.getItem( "cuenta" ) == 0 ? `RESETEADO`
+      : sessionStorage.getItem( "cuenta" ) == 1 ? `Bienvenido a mi humilde morada. Esta es la primera vez que entras. Espero que vuelvas.` 
+      : sessionStorage.getItem( "cuenta" ) == 2 ? `Hola de nuevo. Ya estás aquí por segunda vez. ¿Volveremos a vernos?`
       : `Ya empiezas a ser pesado. Esta es la vez nuḿero ${sessionStorage.getItem("cuenta")} que entras. Sigue con tus cosas.`;
 
     let actualizaContador = () =>
         sessionStorage.getItem("cuenta") == null ?
-            sessionStorage.setItem("cuenta", 1) :
-        
-            sessionStorage.setItem("cuenta", parseInt(sessionStorage.getItem("cuenta")) + parseInt(1));
+            sessionStorage.setItem( "cuenta", 1 ) : 
+            sessionStorage.setItem( "cuenta", parseInt( sessionStorage.getItem("cuenta") ) + parseInt(1) );
 
     document.addEventListener( "DOMContentLoaded", () => {
-        document.getElementById("reset").addEventListener('click', reseteaContador); 
+        document.getElementById("reset").addEventListener( 'click', reseteaContador ); 
         actualizaContador();
         document.getElementById("mensaje").innerHTML = generaMensaje();
+
         document.getElementById("atras").addEventListener('click', () => { history.back() } );
-    } );
+    });
 }
