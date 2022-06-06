@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Repaso UD6:DOM</title>
+</head>
+
+<body>
+    <div>
+        <h2>Crear párrafos</h2>
+        <button id="creaFinal1">Al final de uno </button> <button id="creaFinal2">Al final de dos </button><input type="text" name="" id=""
+            value="Al final de ">
+        <div>
+            <button id="creaPrincipio1">Al principio de uno </button> <button id="creaPrincipio2">Al principio de dos </button><input type="text" name="" id=""
+                value="Al principio de">
+        </div>
+
+        <h2>Eliminar párrafos</h2>
+        <button id="eliminaFinal1">Al final de uno </button> <button id="eliminaFinal2">Al final de dos </button>
+        <button id="eliminaPrincipio1">Al principio de uno </button> <button id="eliminaPrincipio2">Al principio de dos </button>
+
+        <h2>Sección</h2>
+        <button id="duplica1">Duplicar sección uno </button> <button id="duplica2">Eliminar sección uno </button>
+
+        <h2>Cambiar CSS (sobre Eliminar Párrafos)</h2>
+        <div><button id="color1">Cambiar color uno </button>
+            <select name="" id="color">
+                <option value="red">rojo</option>
+                <option value="yellow" selected>amarillo</option>
+                <option value="green">verde</option>
+            </select>
+        </div>
+        <div>
+            <button id="fondo2">Cambiar fondo dos </button>
+            <label>red<input type="radio" id="genderm" name="fondo" value="red" />
+            </label>
+            <label>yellow<input type="radio" id="genderf" name="fondo" value="yellow" />
+            </label>
+            <label>green<input type="radio" id="genderf" name="fondo" value="green" checked />
+            </label>
+        </div>
+
+        <h2>Clases css (sobre Crear Párrafos)</h2>
+        <p>Usa this y muévete para clases indicadas</p>
+        <div>
+            <button>Toggle</button><input type="text" value=".color-rojo">
+        </div>
+        <label> color-rojo
+            <input type="checkbox" value="color-rojo">
+        </label>
+        <label> color-amarillo
+            <input type="checkbox" value="color-amarillo">
+        </label>
+        <label> color-verde
+            <input type="checkbox" value="color-verde">
+        </label> 
+        <label> fondo-rojo
+            <input type="checkbox" value="fondo-rojo">
+        </label>
+        <label> fondo-amarillo
+            <input type="checkbox" value="fondo-amarillo">
+        </label>
+        <label> fondo-verde
+            <input type="checkbox" value="fondo-verde">
+        </label>
+    </div>
+    <section id="uno"></section>
+    <hr>
+    <section id="dos"></section>
+    <hr>
+</body>
+
+</html>
