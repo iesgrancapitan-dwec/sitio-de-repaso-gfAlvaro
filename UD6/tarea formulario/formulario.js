@@ -4,57 +4,61 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    let valida = function(entrada){
+    let nombre = document.getElementById("nombre");
+    let telefono = document.getElementById("telefono");
+    let ip = document.getElementById("ip");
+    let codigoPostal = document.getElementById("codigoPostal");
 
-        let regex = /^$/;
-        let campo = "Campo";
-
-        switch (entrada){
-            case 0: // nombre
-                regex = /^[A-Z][a-z]*(\s[A-Z][a-z]*)+$/;
-                campo = "Nombre";
-                break;
-            case 1: // telefono
-                regex= /^\d{9}$/;
-                campo = "Teléfono"; 
-                break;
-            case 2: // IP
-                regex = /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/;
-                campo = "IP";
-        }
-
-        if( this.value.trim().match( regex ) )
-            this.parentNode.nextSibling.innerHTML = "";
+    let validaNombre = () => {
+        if( /^[A-Z][a-z\s]+$/.test( nombre.value.trim() ) )
+            nombre.nextSibling.innerHTML = "";
         else
-            this.parentNode.nextSibling.innerHTML = campo + " no válido. ";      
-    }
-    
-    let validaArea = function() {
-        const array = [ ...this.value.trim().matchAll( /^(\d{5})|(\d{2}\.\d{3})$/ ) ];
-        if(array.size > 0)
-            this.parentNode.nextSibling.innerHTML = array.join(" ");
+            nombre.nextSibling.innerHTML = "Nombre no válido. ";      
     }
 
-    let limpiaSpan = function() { this.parentNode.nextSibling.innerHTML = ""; }
+    let validaTelefono = () => {
+        if( /^[0-9]{9}$/.test( telefono.value.trim() ) )
+            telefono.nextSibling.innerHTML = "";
+        else
+            telefono.nextSibling.innerHTML = "Teléfono no válido. ";      
+    }
 
-    document.getElementById("nombre").addEventListener( 'blur', this.valida(0) );
-    document.getElementById("nombre").addEventListener( 'focus', this.limpiaSpan );
-    document.getElementById("telefono").addEventListener( 'blur', this.valida(1) );
-    document.getElementById("telefono").addEventListener( 'focus', this.limpiaSpan );
-    document.getElementById("ip").addEventListener( 'blur', this.valida(2));
-    document.getElementById("ip").addEventListener( 'focus', this.limpiaSpan );
-    document.getElementById("area").addEventListener( 'blur', this.validaArea );
-    document.getElementById("area").addEventListener( 'focus', this.limpiaSpan );
+    let validaIp = () => {
+        if( /^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/g.test( ip.value.trim() ) )
+            ip.nextSibling.innerHTML = "";
+        else
+            ip.nextSibling.innerHTML = "Ip no válida. ";      
+    }
 
-    document.getElementById("formulario").addEventListener('submit', (evt) => {
+    let validaCodigoPostal = () => {
+        const array = [ ...codigoPostal.value.trim().matchAll( /[0-9]{5}|[0-9]{2}[\,|\.][0-9]{3}/g ) ];
+        if( array.size != 0 )
+            codigoPostal.nextSibling.innerHTML = array.join(" ");
+    }
+
+    let limpiaSpan = (entrada) => entrada.nextSibling.innerHTML = "";
+
+    nombre.addEventListener( 'blur', validaNombre );
+    telefono.addEventListener( 'blur', validaTelefono );
+    ip.addEventListener( 'blur', validaIp );
+    codigoPostal.addEventListener( 'blur', validaCodigoPostal );
+
+    nombre.addEventListener( 'focus', () => limpiaSpan(this) );
+    telefono.addEventListener( 'focus', () => limpiaSpan(this) );
+    ip.addEventListener( 'focus', () => limpiaSpan(this) );
+    codigoPostal.addEventListener( 'focus', () => limpiaSpan(this) );
+
+    document.getElementById("formulario").addEventListener( 'submit', (evt) => {
         evt.preventDefault();
-        for( let i = 0; i < 3; i++ )
-            valida(i);
-        validaArea();
+        const event = new Event('blur');
+        nombre.dispatchEvent(event);
+        telefono.dispatchEvent(event);
+        ip.dispatchEvent(event);
     });
-    
-    document.getElementById("formulario").addEventListener('reset', (evt) => {
-        evt.preventDefault();
-        document.reset();
+
+    document.addEventListener('reset', (evt) => {
+        for( elemento of document.getElementsByClassName("input") )
+            limpiaSpan(elemento);
+        
     });
 });
